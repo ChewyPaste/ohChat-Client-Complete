@@ -1,55 +1,68 @@
-import { LOGIN, REGISTER, LOGOUT, UPDATE_PROFILE } from '../types/index'
+import {
+	LOGIN,
+	REGISTER,
+	LOGOUT,
+	UPDATE_PROFILE,
+	AUTH_ERROR
+} from '../types/index';
 
 const initialState = {
-    // user: JSON.parse(localStorage.getItem('user')) || {},
-    // token: localStorage.getItem('token') || '',
-    // isLoggedIn: !!localStorage.getItem('user'),
+	// user: JSON.parse(localStorage.getItem('user')) || {},
+	// token: localStorage.getItem('token') || '',
+	// isLoggedIn: !!localStorage.getItem('user'),
 
-    user: {},
-    token: '',
-    isLoggedIn: false
-}
+	user: {},
+	token: '',
+	isLoggedIn: false,
+	authError: null
+};
 
 const authReducer = (state = initialState, action) => {
+	const { type, payload } = action;
 
-    const { type, payload } = action
+	switch (type) {
+		case AUTH_ERROR:
+			console.log('error', payload);
+			return {
+				...state,
+				authError: true
+			};
 
-    switch (type) {
-        case LOGIN:
-            return {
-                ...state,
-                user: payload.user,
-                token: payload.token,
-                isLoggedIn: true
-            }
+		case LOGIN:
+			return {
+				...state,
+				user: payload.user,
+				token: payload.token,
+				isLoggedIn: true,
+				authError: false
+			};
 
-        case REGISTER:
-            return {
-                ...state,
-                user: payload.user,
-                token: payload.token,
-                isLoggedIn: true
-            }
+		case REGISTER:
+			return {
+				...state,
+				user: payload.user,
+				token: payload.token,
+				isLoggedIn: true
+			};
 
-        case LOGOUT:
-            return {
-                ...state,
-                user: {},
-                token: '',
-                isLoggedIn: false
-            }
+		case LOGOUT:
+			return {
+				...state,
+				user: {},
+				token: '',
+				isLoggedIn: false
+			};
 
-        case UPDATE_PROFILE:
-            return {
-                ...state,
-                user: payload
-            }
+		case UPDATE_PROFILE:
+			return {
+				...state,
+				user: payload
+			};
 
-        default: {
-            return state
-        }
-    }
+		default: {
+			return state;
+		}
+	}
+};
 
-}
-
-export default authReducer
+export default authReducer;
