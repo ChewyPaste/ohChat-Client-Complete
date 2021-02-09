@@ -4,7 +4,7 @@ import { logout } from '../store/actions/auth';
 
 const API = axios.create({
 	//server url
-	baseURL: 'http://ohchat-server.herokuapp.com/',
+	baseURL: 'https://ohchat-server.herokuapp.com/',
 	// baseURL: 'http://localhost:3001/',
 
 	headers: {

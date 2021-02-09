@@ -20,7 +20,7 @@ function useSocket(user, dispatch) {
 			.then((res) => {
 				//server url
 				const socket = socketIOClient.connect(
-					'http://ohchat-server.herokuapp.com/'
+					'https://ohchat-server.herokuapp.com/'
 					// 'http://localhost:3001/'
 				);
 
