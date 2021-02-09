@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import loginImage from '../../assets/images/login.svg';
 import { Link } from 'react-router-dom';
 import Landing from './Landing';
 

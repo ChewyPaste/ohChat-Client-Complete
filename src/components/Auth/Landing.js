@@ -9,7 +9,7 @@ const Landing = () => {
 				<h1>Contact Me</h1>
 				<p>
 					forward your bug reports, job offers and lottery numbers to{' '}
-					<a href='#'>whmcheong@gmail.com</a>
+					<a href='mailto:whmcheong@gmail.com'>whmcheong@gmail.com</a>
 				</p>
 			</section>
 			<div className='img-container'>
